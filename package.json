@@ -1,0 +1,17 @@
+{
+  "name": "jest-esm-mock-issue",
+  "version": "1.0.0",
+  "description": "Minimal repo to reproduce the jest.mock issue with ESM enabled",
+  "type": "module",
+  "scripts": {
+    "start": "electron ./src/main.cjs",
+    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "author": "Wing Chau @Devtography",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^20.0.2",
+    "jest": "^28.1.3"
+  }
+}
