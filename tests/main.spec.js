@@ -1,6 +1,7 @@
+import { createRequire } from 'node:module';
 import { jest } from '@jest/globals';
-import { BrowserWindow } from 'electron';
-import { exportedForTests } from '../src/main.cjs';
+
+const require = createRequire(import.meta.url);
 
 jest.mock('electron', () => ({
   app: {
@@ -12,6 +13,9 @@ jest.mock('electron', () => ({
     on: jest.fn(),
   })),
 }));
+
+const { BrowserWindow } = require('electron');
+const exportedForTests = require('../src/main.cjs');
 
 test('Private props exported for unit tests', () => {
   expect(exportedForTests).toBeDefined();
